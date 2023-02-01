@@ -17,6 +17,8 @@ export default function IncidentReport() {
 
   if (isLoading) return <p>Loading...</p>
   if (!data) return <p>No Incident reports data</p>
+
+  
   return (
     <div>
       <h1>Incident reports</h1>
