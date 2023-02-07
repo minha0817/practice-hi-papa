@@ -36,12 +36,12 @@ export default function Children () {
   return (
     <div style={stylingObject.outerDiv}>
       {data && 
-        data.map((item) => {
+        data.map((item, index) => {
           return (
-            <div style={stylingObject.innerDiv}>
+            <ul key={index} style={stylingObject.innerDiv}>
               <img src={item.url} style={stylingObject.img}></img>
               <p>{item.name}</p>
-            </div>
+            </ul>
           )
         })
       }

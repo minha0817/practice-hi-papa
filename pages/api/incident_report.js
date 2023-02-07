@@ -25,6 +25,17 @@ const temporaryIncidentReports = [
     description: "This child hit other friends"  },
 ];
 
+//It will receive req(submitted data)from a client.
 export default function handler(req, res) {
-  res.status(200).json(temporaryIncidentReports);
+  const body = req.body
+  console.log('body:', body);
+
+  if(!body.notes) {
+    return res.status(400).json({date: "Incidents reports are not found"})
+  }
+
+
+  //In return, it will send a response(res) as JSON
+  //We can access to it http://localhost:3000/api/incident_report
+  res.status(200).json({data: `${body.notes}`});
 }

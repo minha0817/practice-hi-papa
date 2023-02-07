@@ -25,9 +25,8 @@ export default function IncidentReport() {
         data.map((item) => {
           return (
             <>
-              <p>{item.description}</p>
-              <p>{item.dateTime}</p>
-            </>
+              <p>{item}</p>
+\            </>
           )
         })}
     </div>
