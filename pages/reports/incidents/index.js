@@ -15,7 +15,6 @@ export default function Incidents() {
       .then((res) => res.json())
       .then((data) => {
         setData(data)
-        console.log("data", data)
         setLoading(false)
       })
   }, [])

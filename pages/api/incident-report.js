@@ -28,7 +28,6 @@ const temporaryIncidentReports = [
 //It will receive req(submitted data)from a client.
 export default function handler(req, res) {
   const notes = req.body.notes
-  // console.log('notes:', notes);
 
   if(!notes) {
     return res.status(400).json("Incidents reports are not found")

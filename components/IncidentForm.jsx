@@ -31,13 +31,8 @@ export default function IncidentForm({setData}) {
     const response = await fetch(endPoint, options)
 
     const result = await response.json()
-    console.log('form works???', result);
     setData(result)
   }
-
-  //post works, get doesn't work, 
-  //400 error -> endpoint is wrong? if so, how come post still works?
-  //why /api/incident-report doesn't get the right data?
 
   return (
     <>
