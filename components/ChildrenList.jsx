@@ -15,7 +15,7 @@ const stylingObject = {
   }
 }
 
-export default function Children () {
+export default function ChildrenList () {
 
   const [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(false);

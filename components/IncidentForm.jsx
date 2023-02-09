@@ -7,7 +7,8 @@ const stylingObject = {
   }
 }
 
-export default function IncidentForm() {
+export default function IncidentForm({setData}) {
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -17,7 +18,7 @@ export default function IncidentForm() {
     }
 
     const JSONData = JSON.stringify(data)
-    const endPoint = "/api/incident_report"
+    const endPoint = "/api/incident-report/post"
 
     const options = {
       method: "POST",
@@ -31,12 +32,16 @@ export default function IncidentForm() {
 
     const result = await response.json()
     console.log('form works???', result);
+    setData(result)
   }
 
+  //post works, get doesn't work, 
+  //400 error -> endpoint is wrong? if so, how come post still works?
+  //why /api/incident-report doesn't get the right data?
 
   return (
     <>
-      <form style={stylingObject.form} action="/api/incident_report" method="post" onSubmit={handleSubmit}>
+      <form style={stylingObject.form} action="/api/incident-report/post" method="post" onSubmit={handleSubmit}>
         {/* <label>
           Time:
           <input type="text" name="time" />
@@ -54,6 +59,7 @@ export default function IncidentForm() {
         <button type="submit">Save</button>
         <button type="reset">Cancel</button>
       </form>
+
     </>
   )
 }
