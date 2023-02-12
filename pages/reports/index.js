@@ -6,7 +6,9 @@ export default function Reports() {
     <>
       <h1>reports</h1>
       <article>
-        <Link href="/reports/incidents"><h2>Incident</h2></Link>
+        <Link href="/reports/incidents">
+          <h2>Incident</h2>
+        </Link>
       </article>
       <article>
         <h2>Meals</h2>
