@@ -6,7 +6,7 @@ export default function IncidentReport({ data }) {
       <h1>Incident reports</h1>
       {data &&
         data.map((item) => {
-          return <p>{item.notes}</p>
+          return <p key={item.INCIDENT_REPORT_ID}>{item.NOTE}</p>
         })}
     </div>
   )
