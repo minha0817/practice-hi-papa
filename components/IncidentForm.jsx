@@ -41,7 +41,8 @@ export default function IncidentForm({setData, data}) {
       },
     ]);
 
-    console.log("data final", data);
+    event.target.notes.value = "";
+    
   }
 
   return (
