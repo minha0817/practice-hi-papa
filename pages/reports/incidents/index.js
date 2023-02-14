@@ -16,8 +16,6 @@ export default function Incidents() {
         setLoading(false);
       });
   }, []);
-
-  console.log("data", data);
   
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No Incident reports data</p>;

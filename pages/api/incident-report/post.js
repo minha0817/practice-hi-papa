@@ -1,29 +1,30 @@
-const temporaryIncidentReports = [
-  {
-    // dateTime: "Fri Jun 17 2022 11:27:28 GMT+0100",
-    notes: "This child fell and bumped on the chair"
-  },
-  {
-    // dateTime: "Mon Jan 09 2023 11:27:28 GMT+0100",
-    notes: "This child got a scratch"  },
-  {
-    // dateTime: "Tue Jan 10 2023 11:27:28 GMT+0100",
-    notes: "This child hit other friends"  },
-]
+import query from "../../lib/db";
+
 
 //It will receive req(submitted data)from a client.
-export default function handler(req, res) {
-  const notes = req.body.notes
+export default async function handler(req, res) {
 
-  if(!notes) {
-    return res.status(400).json("Incidents reports are not found")
+  const note = req.body.notes
+  let message;
+
+  const postIncidentReports = await query({
+    query: "INSERT INTO INCIDENT_REPORTS (NOTE) VALUES (?);",
+    values: [note],
+  });
+
+
+  if(postIncidentReports.insertId) {
+    message = "success";
+  } else {
+    message = "error";
   }
 
-  if(notes) {
-    temporaryIncidentReports.push({notes})
+  let incidentReport = {
+    incidentReport_id: postIncidentReports.insertId,
+    incidentReport_note: note,
   }
-
   //In return, it will send a response(res) as JSON
   //We can access to it http://localhost:3000/api/incident-report
-  return res.status(200).json(temporaryIncidentReports);
+  return res.status(200).json(incidentReport);
 }
+
