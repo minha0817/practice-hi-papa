@@ -8,17 +8,20 @@ export default function Incidents() {
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
+    getIncidentReports();
+  }, []);
+
+  const getIncidentReports = () => {
     setLoading(true);
+
     fetch("/api/incident-report/get")
       .then((res) => res.json())
       .then((data) => {
         setData(data);
         setLoading(false);
       });
-  }, []);
+  };
 
-  console.log("data", data);
-  
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No Incident reports data</p>;
 
@@ -26,7 +29,11 @@ export default function Incidents() {
     <>
       <h1>incidents</h1>
       <ChildrenList />
-      <IncidentForm data={data} setData={setData} />
+      <IncidentForm
+        data={data}
+        setData={setData}
+        getIncidentReports={getIncidentReports}
+      />
       <IncidentReport data={data} />
     </>
   );

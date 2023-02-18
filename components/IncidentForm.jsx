@@ -7,17 +7,17 @@ const stylingObject = {
   }
 }
 
-export default function IncidentForm({setData}) {
+export default function IncidentForm({getIncidentReports}) {
 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const data = {
+    const newIncidentReport = {
       notes: event.target.notes.value
     }
 
-    const JSONData = JSON.stringify(data)
+    const JSONData = JSON.stringify(newIncidentReport)
     const endPoint = "/api/incident-report/post"
 
     const options = {
@@ -31,16 +31,17 @@ export default function IncidentForm({setData}) {
     const response = await fetch(endPoint, options)
 
     const result = await response.json()
-    setData(result)
+    //{incidentReport_id: 24, incidentReport_note: 'sdfsd'}
+    
+    await getIncidentReports();
+
+    event.target.notes.value = "";
+
   }
 
   return (
     <>
       <form style={stylingObject.form} action="/api/incident-report/post" method="post" onSubmit={handleSubmit}>
-        {/* <label>
-          Time:
-          <input type="text" name="time" />
-        </label> */}
         <label htmlFor="notes">
           Notes:
           <textarea name="text" id="notes" rows={10} cols={40} required/>
