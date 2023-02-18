@@ -5,19 +5,13 @@ import query from "../../lib/db";
 export default async function handler(req, res) {
 
   const note = req.body.notes
-  let message;
 
   const postIncidentReports = await query({
     query: "INSERT INTO INCIDENT_REPORTS (NOTE) VALUES (?);",
     values: [note],
   });
 
-
-  if(postIncidentReports.insertId) {
-    message = "success";
-  } else {
-    message = "error";
-  }
+  // const message = Boolean(postIncidentReports.insertId) ? "success" : "error";
 
   let incidentReport = {
     incidentReport_id: postIncidentReports.insertId,
