@@ -7,7 +7,7 @@ const stylingObject = {
   }
 }
 
-export default function IncidentForm({setData, data}) {
+export default function IncidentForm({getIncidentReports}) {
 
 
   const handleSubmit = async (event) => {
@@ -33,16 +33,10 @@ export default function IncidentForm({setData, data}) {
     const result = await response.json()
     //{incidentReport_id: 24, incidentReport_note: 'sdfsd'}
     
-    setData([
-      ...data, 
-      {
-        INCIDENT_REPORT_ID: result.incidentReport_id,
-        NOTE: result.incidentReport_note,
-      },
-    ]);
+    await getIncidentReports();
 
     event.target.notes.value = "";
-    
+
   }
 
   return (
