@@ -6,6 +6,7 @@ import IncidentReport from "../../../components/IncidentReport";
 export default function Incidents() {
   const [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(false);
+  const [chosenChildId, setChosenChildId] = useState(null);
 
   useEffect(() => {
     getIncidentReports();
@@ -25,14 +26,16 @@ export default function Incidents() {
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No Incident reports data</p>;
 
+  console.log('chosenchildid', chosenChildId);
   return (
     <>
       <h1>incidents</h1>
-      <ChildrenList />
+      <ChildrenList setChosenChildId={setChosenChildId}/>
       <IncidentForm
         data={data}
         setData={setData}
         getIncidentReports={getIncidentReports}
+        chosenChildId={chosenChildId}
       />
       <IncidentReport data={data} />
     </>
