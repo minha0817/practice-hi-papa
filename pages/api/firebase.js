@@ -27,13 +27,12 @@ export function login() {
   signInWithPopup(firebaseAuth, provider)
     .then((res) => {
       const user = res.user;
-      console.log(user);
     })
     .catch(console.error);
 }
 
 export function logout() {
-  return signOut(firebaseAuth).catch(console.error);
+  signOut(firebaseAuth).catch(console.error);
 }
 
 export function onUserStateChange(callback) {
