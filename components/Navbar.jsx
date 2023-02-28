@@ -1,24 +1,22 @@
 import Link from "next/link";
 import react, { useEffect, useState } from "react";
-import { login, logout, onUserStateChange } from "../pages/api/firebase";
+import { useAuthContext } from "../pages/context/AuthContext";
 
 export default function Navbar() {
-  const [user, setUser] = useState();
-
-  useEffect(() => {
-    onUserStateChange(setUser);
-  }, []);
+  const { user, login, logout } = useAuthContext();
 
   return (
     <nav>
       <Link href="/">
         <h1>Hipapa</h1>
       </Link>
-      <p>Welcome, teacher!</p>
-      {!user ? (
-        <button onClick={login}>login</button>
+      {user ? (
+        <>
+          {user.isTeacher && <p>Welcome, teacher!</p>}
+          <button onClick={logout}>logout</button>
+        </>
       ) : (
-        <button onClick={logout}>logout</button>
+        <button onClick={login}>login</button>
       )}
       <Link href="/reports">reports</Link>
     </nav>
