@@ -26,7 +26,6 @@ export default function Incidents() {
   if (isLoading) return <p>Loading...</p>;
   if (!data) return <p>No Incident reports data</p>;
 
-  console.log('chosenchildid', chosenChildId);
   return (
     <>
       <h1>incidents</h1>

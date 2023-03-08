@@ -1,15 +1,18 @@
 import Link from "next/link";
-import react, { useEffect, useState } from "react";
 import { useAuthContext } from "../pages/context/AuthContext";
+import User from "./User";
 
 export default function Navbar() {
   const { user, login, logout } = useAuthContext();
+
+  console.log("frontend user", user)
 
   return (
     <nav>
       <Link href="/">
         <h1>Hipapa</h1>
       </Link>
+      {user && <User user={user}/> } 
       {user ? (
         <>
           {user.isTeacher && <p>Welcome, teacher!</p>}
