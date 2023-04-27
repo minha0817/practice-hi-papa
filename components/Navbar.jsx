@@ -5,8 +5,6 @@ import User from "./User";
 export default function Navbar() {
   const { user, login, logout } = useAuthContext();
 
-  console.log("frontend user", user)
-
   return (
     <nav>
       <Link href="/">
