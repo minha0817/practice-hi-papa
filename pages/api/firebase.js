@@ -37,7 +37,7 @@ export function logout() {
 
 export function onUserStateChange(callback) {
   onAuthStateChanged(firebaseAuth, async (user) => {
-    const updateUser = user ? await teacherUser(user) : null;
+    const updateUser = user ? teacherUser(user) : null;
     callback(updateUser);
   });
 }
