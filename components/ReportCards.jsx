@@ -4,17 +4,17 @@ import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
 import { CardActionArea } from '@mui/material'
 
-export default function ReportCards({cardName, image}) {
+export default function ReportCards({cardName, imageUrl}) {
   return (
     <Card sx={{ maxWidth: 200, display: 'flex' }}>
       <CardActionArea>
-        <CardMedia
+        {/* <CardMedia
           component="img"
           height="140"
           src={image}
           alt={cardName}
-        />
-        <img src="https://img.icons8.com/material-outlined/24/null/baby-bottle.png"/>
+        /> */}
+        <img src={imageUrl}/>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {cardName}
@@ -24,4 +24,3 @@ export default function ReportCards({cardName, image}) {
     </Card>
   )
 }
-

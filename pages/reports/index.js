@@ -4,15 +4,21 @@ import ReportCards from "../../components/ReportCards";
 
 export default function Reports() {
   return (
-    <>
+    <div>
       <article>
         <Link href="/reports/incidents">
-          <ReportCards cardName="Incidents" image="https://img.icons8.com/material-outlined/24/null/baby-bottle.png"/>
+          <ReportCards
+            cardName="Incidents"
+            imageUrl="https://img.icons8.com/office/80/null/bandage.png"
+          />
         </Link>
       </article>
       <article>
-      <ReportCards cardName="Meals (Coming soon...) " image="https://img.icons8.com/color/48/null/baby-bottle.png"/>
+        <ReportCards
+          cardName="Meals (Coming soon...) "
+          imageUrl="https://img.icons8.com/color/96/null/baby-bottle.png"
+        />
       </article>
-    </>
+    </div>
   );
 }

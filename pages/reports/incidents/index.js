@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ChildrenList from "../../../components/ChildrenList";
+import ChildrenList from "../../../components/ChildrenList/ChildrenList";
 import IncidentForm from "../../../components/IncidentForm";
 import IncidentReport from "../../../components/IncidentReport";
 
