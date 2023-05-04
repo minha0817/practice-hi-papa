@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ChildrenList from "../../../components/ChildrenList/ChildrenList";
-import IncidentForm from "../../../components/IncidentForm";
+import IncidentForm from "../../../components/IncidentForm/IncidentForm";
 import IncidentReport from "../../../components/IncidentReport";
 
 export default function Incidents() {
@@ -28,7 +28,7 @@ export default function Incidents() {
 
   return (
     <>
-      <h1>incidents</h1>
+      <h2>Incident Reports</h2>
       <ChildrenList setChosenChildId={setChosenChildId}/>
       <IncidentForm
         data={data}

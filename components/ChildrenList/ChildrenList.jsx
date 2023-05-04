@@ -29,12 +29,12 @@ export default function ChildrenList({ setChosenChildId }) {
   if (!data) return <p>No Children data</p>
 
   return (
-    <Stack direction="row" spacing={2} className={styles.childrenlist}>
-      <ul>
+    <Stack direction="row" spacing={2}>
+      <ul className={styles.childrenlist}>
       {data &&
         data.map((item) => {
           return (
-            <div key={item.CHILDREN_ID}>
+            <div key={item.CHILDREN_ID} className={styles.children}>
               <button
                 className={styles.childrenlist_button}
                 onClick={() => {

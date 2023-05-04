@@ -1,11 +1,6 @@
-import React from 'react'
-
-const stylingObject = {
-  form: {
-    display: "flex",
-    flexDirection: "column"
-  }
-}
+import React from 'react';
+import TextField from '@mui/material/TextField';
+import styles from './IncidentForm.module.css';
 
 export default function IncidentForm({getIncidentReports}) {
 
@@ -41,10 +36,14 @@ export default function IncidentForm({getIncidentReports}) {
 
   return (
     <>
-      <form style={stylingObject.form} action="/api/incident-report/post" method="post" onSubmit={handleSubmit}>
+      <form className={styles.form} action="/api/incident-report/post" method="post" onSubmit={handleSubmit}>
         <label htmlFor="notes">
-          Notes:
-          <textarea name="text" id="notes" rows={10} cols={40} required/>
+          <TextField
+          id="outlined-multiline-static"
+          label="Notes"
+          multiline
+          rows={8}
+        />
         </label>
         <label>
           Photo or Videos
@@ -55,7 +54,6 @@ export default function IncidentForm({getIncidentReports}) {
         <button type="submit">Save</button>
         <button type="reset">Cancel</button>
       </form>
-
     </>
   )
 }
