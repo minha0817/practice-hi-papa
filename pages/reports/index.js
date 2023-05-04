@@ -24,13 +24,19 @@ const images = [
 ];
 
 export default function Reports() {
-
   return (
     <Box
-      sx={{ display: "flex", flexWrap: "wrap", minWidth: 300, width: "100%" }}
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        minWidth: 300,
+        width: "100%",
+        justifyContent: "space-evenly",
+        marginTop: "1rem",
+      }}
     >
       {images.map((image) => (
-          <ReportCards image={image} />
+        <ReportCards image={image} />
       ))}
     </Box>
   );
