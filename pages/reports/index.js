@@ -1,18 +1,43 @@
-import Link from "next/link";
 import React from "react";
+import ReportCards from "../../components/ReportCards";
+import Box from "@mui/material/Box";
+
+const images = [
+  {
+    url: "/images/baby_incident.jpg",
+    title: "Incidents",
+    width: "30%",
+    href: "/reports/incidents",
+  },
+  {
+    url: "/images/baby_meals.jpg",
+    title: "Meals",
+    width: "30%",
+    href: "/reports/meals",
+  },
+  {
+    url: "/images/baby_sleep.jpg",
+    title: "Sleep",
+    width: "30%",
+    href: "/reports/sleep",
+  },
+];
 
 export default function Reports() {
   return (
-    <>
-      <h1>reports</h1>
-      <article>
-        <Link href="/reports/incidents">
-          <h2>Incident</h2>
-        </Link>
-      </article>
-      <article>
-        <h2>Meals</h2>
-      </article>
-    </>
+    <Box
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        minWidth: 300,
+        width: "100%",
+        justifyContent: "space-evenly",
+        marginTop: "1rem",
+      }}
+    >
+      {images.map((image) => (
+        <ReportCards image={image} />
+      ))}
+    </Box>
   );
 }

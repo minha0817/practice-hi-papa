@@ -1,0 +1,16 @@
+.childrenlist {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  margin: 2rem 3rem;
+}
+
+.childrenlist_button {
+  all: unset;
+  cursor: pointer;
+  margin: 0 1rem;
+}
+
+.children {
+  text-align: center;
+}
