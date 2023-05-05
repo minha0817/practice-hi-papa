@@ -1,24 +1,28 @@
-import React from 'react';
-import TextField from '@mui/material/TextField';
-import styles from './IncidentForm.module.css';
+import React from 'react'
+import TextField from '@mui/material/TextField'
+import styles from './IncidentForm.module.css'
+import Button from '@mui/material/Button'
+import IconButton from '@mui/material/IconButton'
+import PhotoCamera from '@mui/icons-material/PhotoCamera'
+import Stack from '@mui/material/Stack'
+import DeleteIcon from '@mui/icons-material/Delete'
+import SendIcon from '@mui/icons-material/Send'
 
-export default function IncidentForm({getIncidentReports}) {
-
-
+export default function IncidentForm({ getIncidentReports }) {
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     const newIncidentReport = {
-      notes: event.target.notes.value
+      notes: event.target.notes.value,
     }
 
     const JSONData = JSON.stringify(newIncidentReport)
-    const endPoint = "/api/incident-report/post"
+    const endPoint = '/api/incident-report/post'
 
     const options = {
-      method: "POST",
+      method: 'POST',
       headers: {
-        'Content-Type': "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSONData,
     }
@@ -27,32 +31,47 @@ export default function IncidentForm({getIncidentReports}) {
 
     const result = await response.json()
     //{incidentReport_id: 24, incidentReport_note: 'sdfsd'}
-    
-    await getIncidentReports();
 
-    event.target.notes.value = "";
+    await getIncidentReports()
 
+    event.target.notes.value = ''
   }
 
   return (
     <>
-      <form className={styles.form} action="/api/incident-report/post" method="post" onSubmit={handleSubmit}>
+      <form
+        className={styles.form}
+        action="/api/incident-report/post"
+        method="post"
+        onSubmit={handleSubmit}
+      >
         <label htmlFor="notes">
           <TextField
-          id="outlined-multiline-static"
-          label="Notes"
-          multiline
-          rows={8}
-        />
+            id="outlined-multiline-static"
+            label="Notes"
+            multiline
+            rows={8}
+          />
         </label>
         <label>
-          Photo or Videos
-          <button type='button'>Photos</button>
-          <button type='button'>Videos</button>
+          Upload pictures
+          <IconButton
+            color="primary"
+            aria-label="upload picture"
+            component="label"
+          >
+            <input hidden accept="image/*" type="file" />
+            <PhotoCamera />
+          </IconButton>
         </label>
-        <button type="submit">Submit</button>
-        <button type="submit">Save</button>
-        <button type="reset">Cancel</button>
+        <Stack direction="row" spacing={2}>
+          <Button variant="contained" endIcon={<SendIcon />} type="submit">
+            Send
+          </Button>
+          <Button variant="outlined" endIcon={<DeleteIcon />} type="reset">
+            Delete
+          </Button>
+        </Stack>
       </form>
     </>
   )

@@ -3,27 +3,6 @@ import ButtonBase from '@mui/material/ButtonBase'
 import Typography from '@mui/material/Typography'
 import Link from 'next/link'
 
-// const images = [
-//   {
-//     url: '/images/baby_incident.jpg',
-//     title: 'Incidents',
-//     width: '30%',
-//     href: '/reports/incidents',
-//   },
-//   {
-//     url: '/images/baby_meals.jpg',
-//     title: 'Meals',
-//     width: '30%',
-//     href: '/reports/incidents'
-//   },
-//   {
-//     url: '/images/baby_sleep.jpg',
-//     title: 'Sleep',
-//     width: '30%',
-//     href: '/reports/incidents'
-//   },
-// ]
-
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
   position: 'relative',
   height: 200,

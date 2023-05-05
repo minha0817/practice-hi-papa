@@ -36,7 +36,7 @@ export default function Incidents() {
         getIncidentReports={getIncidentReports}
         chosenChildId={chosenChildId}
       />
-      <IncidentReport data={data} />
+      {/* <IncidentReport data={data} /> */}
     </>
   );
 }
