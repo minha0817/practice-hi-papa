@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ChildrenList from "../../../components/ChildrenList/ChildrenList";
 import IncidentForm from "../../../components/IncidentForm/IncidentForm";
-import IncidentReport from "../../../components/IncidentReport";
 import styles from "./incidents.module.css";
 
 export default function Incidents() {

@@ -5,10 +5,11 @@ import query from "../../lib/db";
 export default async function handler(req, res) {
 
   const note = req.body.notes
+  const chosenChildId = req.body.chosenChildId
 
   const postIncidentReports = await query({
-    query: "INSERT INTO INCIDENT_REPORTS (NOTE) VALUES (?);",
-    values: [note],
+    query: "INSERT INTO INCIDENT_REPORTS (NOTE, CHILD_ID) VALUES (?, ?)",
+    values: [note, chosenChildId],
   });
 
   // const message = Boolean(postIncidentReports.insertId) ? "success" : "error";

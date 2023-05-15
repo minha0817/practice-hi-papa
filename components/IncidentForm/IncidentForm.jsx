@@ -1,19 +1,22 @@
-import React from 'react'
-import TextField from '@mui/material/TextField'
-import styles from './IncidentForm.module.css'
-import Button from '@mui/material/Button'
-import IconButton from '@mui/material/IconButton'
-import PhotoCamera from '@mui/icons-material/PhotoCamera'
-import Stack from '@mui/material/Stack'
-import DeleteIcon from '@mui/icons-material/Delete'
-import SendIcon from '@mui/icons-material/Send'
+import React, {useState} from 'react';
+import TextField from '@mui/material/TextField';
+import styles from './IncidentForm.module.css';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import Stack from '@mui/material/Stack';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
 
-export default function IncidentForm({ getIncidentReports }) {
+export default function IncidentForm({ getIncidentReports, chosenChildId }) {
+
+  const [notes, setNotes] = useState('');
+
   const handleSubmit = async (event) => {
     event.preventDefault()
-
     const newIncidentReport = {
-      notes: event.target.notes.value,
+      chosenChildId: chosenChildId,
+      notes: notes,
     }
 
     const JSONData = JSON.stringify(newIncidentReport)
@@ -34,7 +37,7 @@ export default function IncidentForm({ getIncidentReports }) {
 
     await getIncidentReports()
 
-    event.target.notes.value = ''
+    event.target.value = ''
   }
 
   return (
@@ -48,9 +51,10 @@ export default function IncidentForm({ getIncidentReports }) {
         <label htmlFor="notes">
           <TextField
             id="outlined-multiline-static"
-            label="Notes"
+            label="notes"
             multiline
             rows={8}
+            onChange={(event) => setNotes(event.target.value)}
           />
         </label>
         <label>
