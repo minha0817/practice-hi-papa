@@ -34,20 +34,20 @@ export default function ChildrenList({ setChosenChildId }) {
       {data &&
         data.map((item) => {
           return (
-            <div key={item.CHILDREN_ID} className={styles.children}>
+            <div key={item.CHILD_ID} className={styles.children}>
               <button
                 className={styles.childrenlist_button}
                 onClick={() => {
-                  handleClickChildren(item.CHILDREN_ID)
+                  handleClickChildren(item.CHILD_ID)
                 }}
               >
                 <Avatar
-                  alt={item.CHILDREN_FIRST_NAME}
-                  src={item.CHILDREN_PICTURE}
+                  alt={item.CHILD_FIRST_NAME}
+                  src={item.CHILD_PICTURE}
                   sx={{ width: 56, height: 56 }}
                 />
               </button>
-              <p className={styles.name}>{item.CHILDREN_FIRST_NAME}</p>
+              <p className={styles.name}>{item.CHILD_FIRST_NAME}</p>
             </div>
           )
         })}

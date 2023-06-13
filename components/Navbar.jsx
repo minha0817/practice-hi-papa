@@ -11,7 +11,7 @@ import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
 import Tooltip from '@mui/material/Tooltip'
 import MenuItem from '@mui/material/MenuItem'
-import ChildCareIcon from '@mui/icons-material/ChildCare';
+import ChildCareIcon from '@mui/icons-material/ChildCare'
 import Link from 'next/link'
 import { useAuthContext } from '../pages/context/AuthContext'
 
@@ -97,9 +97,11 @@ export default function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                <Link href={`/${page}`} key={page}>
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page}</Typography>
+                  </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
@@ -108,7 +110,7 @@ export default function Navbar() {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -120,7 +122,7 @@ export default function Navbar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            HIPAPA
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -173,7 +175,7 @@ export default function Navbar() {
                 sx={{ my: 2, color: 'white', display: 'block' }}
                 onClick={login}
               >
-                login
+                Login
               </Button>
             )}
           </Box>
@@ -182,4 +184,3 @@ export default function Navbar() {
     </AppBar>
   )
 }
-
