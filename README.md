@@ -1,4 +1,4 @@
-# HiPapa
+<!-- # HiPapa
 
 A daycare web page for teachers and parents.
 They can communicate through the web page about children and what happens at day care center. 
@@ -27,4 +27,4 @@ Coming soon! 🥸
 ## ⭐️ What to improve? 
 
 - Add web speech api
-- Add a feature that can send an email alert to parents when reports created 
+- Add a feature that can send an email alert to parents when reports created  -->
